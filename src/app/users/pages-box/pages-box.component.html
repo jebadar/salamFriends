@@ -1,0 +1,26 @@
+
+<div *ngIf="!loading && !searchCheck" class="intro-bg">
+    <a><img class="timeline-image"style="margin-right: 0px;" [src]="Assets_URL + 'images/friend-icon.png'" alt=""/><h3 style="margin-top: 5px; width: 0%;">Pages</h3></a>
+    <div class="clear"></div>
+    <div class="intro-bottom"></div>
+    <div *ngFor="let page of title">
+      <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+        <div class="clear"></div>
+  
+        <img class="image" style="width:100px;height:100px" [src]="imgAddress"  alt="">
+        <!-- <a ><img class="image" [src]="friend.profile_pic"  alt=""></a> -->
+        <div class="_3s6x" >
+          <div style="cursor: pointer;" (click)="navigate(page.id)" class="_50f3">{{page.title}}</div>
+        </div>
+  
+        <!-- <div style="text-align: -webkit-center">Create Page</div> -->
+      </div>
+    </div>
+  </div>
+  
+    <div class="clear"></div>
+    <div *ngIf="loading">
+      <div style="position:relative">
+          <loader-component></loader-component>
+      </div>
+    </div>

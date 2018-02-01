@@ -1,0 +1,135 @@
+<!-- <style>
+      .control-nav {
+        border-radius: 4px;
+        border: 1px solid #dee0e5;
+        width: 82% !important;
+        height: 35px;
+        padding-left: 10px;
+        font-size: 12px;
+        color: #a2a2a2;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+</style> -->
+<!--Nav Start-->
+<nav class="navbar navbar-default">
+  <div #searchBarMob class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div  class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click)="collapseMenu()" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul style="margin-top: 5px" class="navbar navbar-expand-lg navbar-light bg-light col-sm-12 responsive-list" *ngIf="!detectmob">
+       <li style="cursor: pointer;" [class.res-friend] = "topNavItem != 1" [class.res-friend-active] = "topNavItem == 1" (click)="selectNav(1)"> <img  (click)="navigate('feed')"  src="/assets/images/news-feed.png" alt=""/></li>
+       <li [class.res-friend] = "topNavItem != 2" style="cursor: pointer;" [class.res-friend-active] = "topNavItem == 2" (click)="selectNav(2)" > <img  [src]="asset_url + 'images/res-friends-icon-1.png'" alt=""/></li>
+       <li [class.res-friend] = "topNavItem != 3" style="cursor: pointer;" [class.res-friend-active] = "topNavItem == 3" (click)="selectNav(3)"> <img  [src]="asset_url + 'images/res-messenger-icon-1.png'" alt=""/></li>
+       <li [class.res-friend] = "topNavItem != 4" style="cursor: pointer;" [class.res-friend-active] = "topNavItem == 4" (click)="selectNav(4)"> <img  [src]="asset_url + 'images/res-notification-icon-1.png'" alt=""/></li>
+       <li [class.res-friend] = "topNavItem != 5"style="cursor: pointer;" [class.res-friend-active] = "topNavItem == 5" (click)="selectNav(5)"> <img (click)="searchMobToggle()"  [src]="asset_url + 'images/res-search-icon.png'" alt=""/></li>
+      </ul>
+      <a style="cursor: pointer;" *ngIf="detectmob" class="navbar-brand" (click) ="navigate('feed')"><img [src]="asset_url + 'images/logo-1.png'" alt=""/></a>
+    </div>
+    <div  *ngIf="!detectmob && searchShow">
+        <form  class="navbar-form navbar-left" style="width: 95%;">
+            <div class="form-group" style="width: 100%;">
+              <ng2-completer [minSearchLength]="1" placeholder="Search" name = "search" [inputClass]="['form-control-top']" [(ngModel)]="searchStr" [datasource]="dataService" (selected)="onSelected($event)"></ng2-completer>
+             </div>
+    
+          </form>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li style="cursor: pointer;" (click)="navigate('profile')"><a><dp-component [profilePic]="imgAddress" [dimension]="width"></dp-component>{{fullName}} <span class="sr-only">(current)</span></a></li>
+        <li *ngIf="detectmob" class="dropdown" dropdown>
+          <a  class="dropdown-toggle" dropdownToggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Friends</a>
+          <ul *dropdownMenu class="dropdown-menu">
+            <li>
+              <a >
+                <h3 style="padding-top: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px;"><span style="padding-top: 10px;">Friend Request</span></h3>
+              </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 8px;"><span style="padding-top: 10px;">Ali Ahmed</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 8px;"><span style="padding-top: 10px;">Ali Ahmed</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 8px;"><span style="padding-top: 10px;">Ali Ahmed</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 8px;"><span style="padding-top: 10px;">Ali Ahmed</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 8px;"><span style="padding-top: 10px;">Ali Ahmed</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <a href="friend-request.html" class="see-botton">See All</a>
+
+          </ul>
+        </li>
+        <li *ngIf="detectmob" class="dropdown" dropdown>
+          <a  class="dropdown-toggle" dropdownToggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notification </a>
+          <ul *dropdownMenu class="dropdown-menu">
+            <li>
+              <a href="#">
+                <h3 style="padding-top: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px;"><span style="padding-top: 10px;">Notifications</span></h3>
+              </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed share a memory.</span><br><span style="padding-top: 10px; color: #a0a0a0;">22 hours ago.</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed share a memory.</span><br><span style="padding-top: 10px; color: #a0a0a0;">22 hours ago.</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed share a memory.</span><br><span style="padding-top: 10px; color: #a0a0a0;">22 hours ago.</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed share a memory.</span><br><span style="padding-top: 10px; color: #a0a0a0;">22 hours ago.</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed share a memory.</span><br><span style="padding-top: 10px; color: #a0a0a0;">22 hours ago.</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <a href="notifications.html" class="see-botton">See All</a>
+
+          </ul>
+
+        </li>
+        <li *ngIf="detectmob" dropdown class="dropdown">
+          <a class="dropdown-toggle" dropdownToggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inbox</a>
+          <ul *dropdownMenu class="dropdown-menu">
+            <li>
+              <a href="#">
+                <h3 style="padding-top: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px;"><span style="padding-top: 10px;">Recent</span> New Message</h3>
+              </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-1.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Ali Ahmed</span><br><span style="padding-top: 10px; color: #a0a0a0;">Hi how are you</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-2.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Aliya Kiran</span><br><span style="padding-top: 10px; color: #a0a0a0;">Okay</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-3.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Alia butt</span><br><span style="padding-top: 10px; color: #a0a0a0;">Yes</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-4.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Saddam Ahsan</span><br><span style="padding-top: 10px; color: #a0a0a0;">Fine</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#"><img class="dropdown-image" [src]="asset_url + 'images/friend-dropdown-image-5.png'" alt=""/><h3 style="padding-top: 0px;"><span style="padding-top: 0px;">Umer Farooq</span><br><span style="padding-top: 10px; color: #a0a0a0;">Hi how are you</span></h3></a></li>
+            <li role="separator" class="divider"></li>
+            <a href="inbox.html" class="see-botton">See All in Inbox</a>
+
+          </ul>
+        </li>
+      </ul>
+      <form *ngIf="detectmob" class="navbar-form navbar-left">
+        <div class="form-group" style="width: 100%;">
+          <ng2-completer [minSearchLength]="1" placeholder="Search" name = "search" [inputClass]="['form-control-top']" [(ngModel)]="searchStr" [datasource]="dataService" (selected)="onSelected($event)"></ng2-completer>
+        </div>
+
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li style="cursor: pointer;" ><a class="anchor-top">Reminder</a></li>
+        <li style="cursor: pointer;"  (click)="navigate('profile/about')"><a class="anchor-top">Setting</a></li>
+        <li style="cursor: pointer;" ><logout-component></logout-component></li>
+
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<router-outlet></router-outlet>

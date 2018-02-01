@@ -1,0 +1,40 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" (click)="close()">&times;</button>
+      <h3 class="modal-title">Create page</h3>
+    </div>
+    <div *ngIf="!loading && !createdCheck">
+      <div class="modal-body">
+      <div [formGroup]="pageCreate">
+        <h4>Name</h4>
+        <input type="text" formControlName="title">
+      </div>
+      <div [formGroup]="pageCreate">
+        <h4>Category</h4>
+        <select class="form-control-singup" style="width: 100%;" name="category" formControlName="category">
+            <option *ngFor="let x of category" [value]="x.id">{{x.title}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="confirm()">Create</button>
+        <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+      </div>
+    </div>
+    <div *ngIf="loading && !createdCheck">
+      <div style="position:relative">
+        <loader-component></loader-component>
+      </div>
+
+    </div>
+    <div *ngIf="!loading && createdCheck">
+        <div class="modal-body">
+            <h4>Page Created Successfully</h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="navigate()">Ok</button>
+          </div>
+    </div>
+  </div>
+</div>

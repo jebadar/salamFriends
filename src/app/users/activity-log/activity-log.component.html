@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="request-bg" style="margin-top: 85px;">
+        <img class="request-icon" [src]="Assets_URL + 'images/activity-icon.png'" alt="" />Activity Log</div>
+      <div *ngIf="!loading" class="request-bg-1">
+        <h6 style="padding-left: 15px; padding-bottom: 5px;">{{setDate(this.logArray[0].created_at)}}</h6>
+        <div class="line"></div>
+        <div *ngFor="let log of logArray;let counter=index">
+          <div *ngIf="dateStepup(counter)">
+              <div class="line"></div>
+              <h6 style="padding-left: 15px; padding-bottom: 5px;">{{dateDisplay}}</h6>
+              <div class="line"></div>
+          </div>
+            <div style="text-align:left" class="col-sm-12">
+              <span style="cursor: pointer;" (click)="navigate('profile')" class="see-botton">{{fullName}}</span> <span *ngIf="log.type === 'login'">{{log.type}}</span>
+              <a *ngIf="log.type != 'login'">{{log.description}}</a>
+              <a>At {{log.created_at}}</a>
+            </div>
+          
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div *ngIf="loading">
+        <div style="position:relative">
+          <loader-component></loader-component>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,33 @@
+<div role="tabpanel" class="tab-pane active" id="home-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+				<div *ngFor="let count of infoArray;let counter=index">
+					<settings-component [infoArray]="infoArray[counter]" [detailArray]="detailArray[counter]"></settings-component>
+					
+					<!-- <div *ngIf="nullDetail">
+						<settings-component [infoArray]="infoArray[counter]"></settings-component>
+					</div> -->
+				</div>
+				<div class="clear"></div>
+				<photos-component [user_Id]="user_id" [searchCheck]="searchCheck"></photos-component>
+				
+				<div class="clear"></div>
+				
+				<friends-component *ngIf="userLoaded" [userId]="user_id" [searchCheck]="searchCheck"></friends-component>
+				
+				<div class="clear"></div>
+				<pages-box-component [searchCheck]="searchCheck"></pages-box-component>
+				<div class="clear"></div>
+			</div>
+			
+
+			<div class="col-md-8 col-sm-4">
+				<div *ngIf="!searchCheck">
+					<post-wrapper-component (post_ID)="postID($event)"></post-wrapper-component>
+				</div>
+				<timeline-component [userId]="user_id" [searchCheck]="searchCheck" [post_id]="post_id"></timeline-component>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>

@@ -1,0 +1,154 @@
+<div role="tabpanel" class="tab-pane" id="profile-2" style="position: relative;">
+  <div class="about-bg">
+    <a href="#"><img class="about-icon" [src]="asset_url + 'images/about-icon.png'" alt=""/>About</a>
+  </div>
+  <div class="request-bg-1">
+
+
+    <div *ngIf="detectmob"  class="col-lg-4 col-sm-4" style="padding-left: 0px;">
+      <ul class="nav nav-tabs-new " *ngFor="let infoHead of infoArray;let counter = index" role="tablist">
+        <li style="cursor: pointer;" role="presentation" (click)="subInfo(infoHead.id,counter)"><a role="tab" data-toggle="tab">{{infoHead.title}}</a></li>
+      </ul>
+    </div>
+
+    <div class="col-lg-8 col-sm-8">
+      <div class="tab-content" style="margin-top: 20px;">
+        <div role="tabpanel" class="tab-pane active" id="home-">
+          <div *ngIf="!editClick" class="col-sm-12">
+            <h3 style="color: #b0b0b0; padding-left: 0px; margin: 0px;">{{selectedItem[0]}}</h3>
+            <div class="clear"></div>
+            <div class="place-line"></div>
+            <a style="cursor: pointer;" [hidden]="disableBtn" (click)="editItem(selectedItem[0])"><img class="place-image" style="margin-top: 20px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" [src]="asset_url + 'images/add-icon.png'" alt=""/><h3 style="padding-top: 10px; margin-left: 0px; width: 78%; padding-top: 15px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">{{textBtn}} {{selectedItem[0]}}</h3></a>
+            
+            <div *ngIf="!emptyCheck">
+              <div >
+                <table style="margin-top: 80px;">
+                  <thead>
+                    <tr *ngFor="let subinfo of metadataInfo.subinfo; let counter = index;">
+                      <th>
+                        <a style="text-transform:uppercase; padding-right: 98px; line-height: 40px; color: #01afee; box-sizing: unset; float: left; width: 100%; ">{{subinfo.title}}</a>
+                      </th>
+                      <td *ngIf="metadataInfo.id != 'basic'">
+                        <a>{{details[counter].description}}</a>
+                      </td>
+                      <td *ngIf="metadataInfo.id == 'basic'">
+                        <a>{{userBasicArr[counter].title}}</a>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!detectmob && !editClick" class="col-sm-12">
+              <h3  style="color: #b0b0b0; padding-left: 0px; margin: 0px;">{{selectedItem[1]}}</h3>
+              <div class="clear"></div>
+              <div  class="place-line"></div>
+              <a style="cursor: pointer;" [hidden]="disableBtn" (click)="editItem(selectedItem[1])"><img class="place-image" style="margin-top: 20px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" [src]="asset_url + 'images/add-icon.png'" alt=""/><h3 style="padding-top: 10px; margin-left: 0px; width: 78%; padding-top: 15px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">{{textBtn_res}} {{selectedItem[1]}}</h3></a>
+              
+              <div *ngIf="!emptyCheck_res">
+                <div >
+                  <table style="margin-top: 80px;">
+                    <thead>
+                      <tr *ngFor="let subinfo of metadataInfo_res.subinfo; let counter = index;">
+                        <th>
+                          <a style="text-transform:uppercase; padding-right: 100px; line-height: 40px; color: #01afee; ">{{subinfo.title}}</a>
+                        </th>
+                        <td *ngIf="metadataInfo_res.id != 'basic'">
+                          <a>{{details[counter].description}}</a>
+                        </td>
+                        <td *ngIf="metadataInfo_res.id == 'basic'">
+                          <a>{{userBasicArr[counter].title}}</a>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          <div *ngIf="editClick">
+            <div *ngIf="!box_res">
+            <form (ngSubmit)="f.form.valid && submitDetail()" #f="ngForm" novalidate>
+              <div class="form-group" *ngFor="let detail of Userdetails;let counter=index">
+                <label class="control-label" style="text-transform: uppercase; color: #01afee;">{{metadataInfo.subinfo[counter].title}}</label>
+
+                <input type="text" *ngIf="metadataInfo.subinfo[counter].title != 'Date of birth' && metadataInfo.subinfo[counter].title != 'Gender' && metadataInfo.subinfo[counter].title != 'From' && metadataInfo.subinfo[counter].title != 'To'"
+                  class="form-control" [disabled]="metadataInfo.subinfo[counter].title == 'Email'" style="border-radius: 4px;"
+                  name="item{{counter}}" [(ngModel)]="Userdetails[counter].description" #item="ngModel" required>
+                <input type="date" *ngIf="metadataInfo.subinfo[counter].title == 'Date of birth' && metadataInfo.subinfo[counter].title != 'Gender' && metadataInfo.subinfo[counter].title != 'From' && metadataInfo.subinfo[counter].title != 'To'"
+                  class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[0] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[0] = $event"
+                  [value]="tempDate[0] | date:'yyyy-MM-dd'" required>
+                  <input type="date" *ngIf="metadataInfo.subinfo[counter].title != 'Date of birth' && metadataInfo.subinfo[counter].title != 'Gender' && metadataInfo.subinfo[counter].title == 'To'"
+                  class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[0] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[0] = $event"
+                  [value]="tempDate[0] | date:'yyyy-MM-dd'" required>
+                  <input type="date" *ngIf="metadataInfo.subinfo[counter].title != 'Date of birth' && metadataInfo.subinfo[counter].title != 'Gender' && metadataInfo.subinfo[counter].title == 'From'"
+                  class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[1] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[1] = $event"
+                  [value]="tempDate[1] | date:'yyyy-MM-dd'" required>
+
+                <select class="form-control-singup" *ngIf="metadataInfo.subinfo[counter].title != 'Date of birth' && metadataInfo.subinfo[counter].title == 'Gender'  && metadataInfo.subinfo[counter].title != 'From' && metadataInfo.subinfo[counter].title != 'To'"
+                  name="gender" [(ngModel)]="selectedGender">
+                  <option *ngFor="let x of gender" [selected]="x.title === selectedGender">{{x.title}}</option>
+                </select>
+              </div>
+
+              <button type="button" (click)="closeItemBox()" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" [disabled]="!f.form.valid" class="btn btn-primary">Save Change</button>
+            </form>
+          </div>
+          <div *ngIf="box_res">
+              <form (ngSubmit)="f.form.valid && submitDetail()" #f="ngForm" novalidate>
+                  <div class="form-group" *ngFor="let detail of Userdetails;let counter=index">
+                    <label class="control-label" style="text-transform: uppercase; color: #01afee;">{{metadataInfo_res.subinfo[counter].title}}</label>
+    
+                    <input type="text" *ngIf="metadataInfo_res.subinfo[counter].title != 'Date of birth' && metadataInfo_res.subinfo[counter].title != 'Gender' && metadataInfo_res.subinfo[counter].title != 'From' && metadataInfo_res.subinfo[counter].title != 'To'"
+                      class="form-control" [disabled]="metadataInfo_res.subinfo[counter].title == 'Email'" style="border-radius: 4px;"
+                      name="item{{counter}}" [(ngModel)]="Userdetails[counter].description" #item="ngModel" required>
+                    <input type="date" *ngIf="metadataInfo_res.subinfo[counter].title == 'Date of birth' && metadataInfo_res.subinfo[counter].title != 'Gender' && metadataInfo_res.subinfo[counter].title != 'From' && metadataInfo_res.subinfo[counter].title != 'To'"
+                      class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[0] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[0] = $event"
+                      [value]="tempDate[0] | date:'yyyy-MM-dd'" required>
+                      <input type="date" *ngIf="metadataInfo_res.subinfo[counter].title != 'Date of birth' && metadataInfo_res.subinfo[counter].title != 'Gender' && metadataInfo_res.subinfo[counter].title == 'To'"
+                      class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[0] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[0] = $event"
+                      [value]="tempDate[0] | date:'yyyy-MM-dd'" required>
+                      <input type="date" *ngIf="metadataInfo_res.subinfo[counter].title != 'Date of birth' && metadataInfo_res.subinfo[counter].title != 'Gender' && metadataInfo_res.subinfo[counter].title == 'From'"
+                      class="form-control" style="border-radius: 4px;" name="date{{counter}}" [ngModel]="tempDate[1] | date:'yyyy-MM-dd'" (ngModelChange)="tempDate[1] = $event"
+                      [value]="tempDate[1] | date:'yyyy-MM-dd'" required>
+    
+                    <select class="form-control-singup" *ngIf="metadataInfo_res.subinfo[counter].title != 'Date of birth' && metadataInfo_res.subinfo[counter].title == 'Gender'  && metadataInfo_res.subinfo[counter].title != 'From' && metadataInfo_res.subinfo[counter].title != 'To'"
+                      name="gender" [(ngModel)]="selectedGender">
+                      <option *ngFor="let x of gender" [selected]="x.title === selectedGender">{{x.title}}</option>
+                    </select>
+                  </div>
+    
+                  <button type="button" (click)="closeItemBox()" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" [disabled]="!f.form.valid" class="btn btn-primary">Save Change</button>
+                </form>
+          </div>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <div [hidden]="!loading" style="width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px">
+    <div class="loading-icon">
+      <div class="rect rect1"></div>
+      <div class="rect rect2"></div>
+      <div class="rect rect3"></div>
+    </div>
+  </div>
+</div>

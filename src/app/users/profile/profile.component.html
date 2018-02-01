@@ -1,0 +1,560 @@
+<style type="text/css">
+	.image {
+		width: 200px;
+		height: 200px;
+		background: rgba(0, 0, 0, 0) no-repeat scroll 0 0 / cover;
+		background-size: contain;
+		border: 5px solid #fff;
+		border-radius: 4px;
+	}
+
+
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.caption-style-2 {
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	.caption-style-2 li {
+		float: left;
+		padding: 0px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.caption-style-2 li:hover .caption {
+		opacity: 1;
+		transform: translateY(-100px);
+		-webkit-transform: translateY(-100px);
+		-moz-transform: translateY(-100px);
+		-ms-transform: translateY(-100px);
+		-o-transform: translateY(-100px);
+	}
+
+
+	.caption-style-2 img {
+		margin: 0px;
+		padding: 0px;
+		float: left;
+		z-index: 4;
+	}
+
+
+	.caption-style-2 .caption {
+		cursor: pointer;
+		position: absolute;
+		opacity: 0;
+		top: 240px;
+		-webkit-transition: all 0.15s ease-in-out;
+		-moz-transition: all 0.15s ease-in-out;
+		-o-transition: all 0.15s ease-in-out;
+		-ms-transition: all 0.15s ease-in-out;
+		transition: all 0.15s ease-in-out;
+	}
+
+	.caption-style-2 .blur {
+		background-color: #01afee;
+		height: 100px;
+		width: 400px;
+		z-index: 5;
+		position: absolute;
+	}
+
+	.caption-style-2 .caption-text h1 {
+		text-transform: uppercase;
+		font-size: 18px;
+		color: #fff;
+		text-transform: uppercase;
+		padding-left: 25px;
+		padding-top: 10px;
+		margin: 0px;
+		line-height: 0px;
+	}
+
+	.caption-style-2 .caption-text {
+		z-index: 10;
+		color: #fff;
+		position: absolute;
+		width: 400px;
+		height: 100px;
+		text-align: center;
+		top: 20px;
+	}
+
+	/** Nav Menu */
+
+	ul.nav-menu {
+		padding: 0px;
+		margin: 0px;
+		list-style-type: none;
+		width: 510px;
+		margin: 60px auto;
+	}
+
+	ul.nav-menu li {
+		display: inline;
+		margin-right: 10px;
+		padding: 10px;
+		border: 1px solid #ddd;
+	}
+
+	ul.nav-menu li a {
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	ul.nav-menu li a:hover,
+	ul.nav-menu li a.active {
+		color: #fff;
+	}
+
+	/** content **/
+
+	.content {
+		margin-top: 100px;
+		margin-left: 100px;
+		width: 700px;
+	}
+
+	.content h1,
+	.content h2 {
+		font-family: "Source Sans Pro", sans-serif;
+		color: #fff;
+		padding: 0px;
+		margin: 0px;
+		font-weight: normal;
+		position: absolute;
+		z-index: 1000;
+	}
+
+	.content h1 {
+		font-weight: 900;
+		font-size: 64px;
+		position: relative;
+		z-index: 1000;
+		color: #fff;
+	}
+
+	.content h2 {
+		font-size: 26px;
+		position: relative;
+		z-index: 1000;
+		color: #fff;
+	}
+
+	.content p {
+		color: #ecf0f1;
+		font-family: "Lato";
+		line-height: 28px;
+		font-size: 15px;
+		padding-top: 50px;
+	}
+
+	p.credit {
+		padding-top: 20px;
+		font-size: 12px;
+	}
+
+	p a {
+		color: #fff;
+	}
+
+	/** fork icon**/
+
+	.fork {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	.des h3 {
+		padding-left: 214px;
+		font-size: 20px;
+		margin-top: -60px;
+		color: #fff;
+	}
+
+	.res-camera-icon {
+		position: absolute;
+		margin-top: 160px !important;
+		float: right !important;
+		margin-left: 190px;
+		z-index: 1;
+	}
+
+	.res-camera-icon-cover {
+		position: absolute;
+		margin-top: 382px !important;
+		float: right !important;
+		margin-left: 275px;
+		z-index: 1;
+	}
+
+
+	@media(max-width: 320px) {
+		.res-camera-icon {
+			position: relative;
+			margin-top: 166px !important;
+			float: right !important;
+			margin-left: -150px !important;
+			z-index: 1;
+			margin-right: 42px !important;
+		}
+		.res-camera-icon-cover {
+			position: relative;
+			margin-top: 382px !important;
+			float: right !important;
+			margin-left: 0px;
+			z-index: 1;
+			align-items: right;
+			align-self: right;
+			align-content: right;
+			z-index: 1
+		}
+
+		.caption-style-2 li {
+			padding: 0px;
+			position: relative;
+			overflow: hidden;
+			text-align: center;
+			float: unset;
+		}
+		.caption-style-2 img {
+			margin: 0px;
+			padding: 0px;
+			z-index: 4;
+			float: unset;
+			margin-top: 115px;
+		}
+		.profile-res h3 {
+			margin-top: 26px !important;
+			text-align: center !important;
+			float: unset !important;
+			color: #000 !important;
+			padding: 0px !important;
+		}
+	}
+
+	@media(max-width: 360px) {
+		.profile-res h3 {
+			margin-top: 26px !important;
+			text-align: center !important;
+			float: unset !important;
+			color: #000 !important;
+			padding: 0px !important;
+		}
+		.res-camera-icon-cover {
+			position: relative;
+			margin-top: 382px !important;
+			float: right !important;
+			margin-left: 0px;
+			z-index: 1;
+			align-items: right;
+			align-self: right;
+			align-content: right;
+			z-index: 1
+		}
+
+		.caption-style-2 li {
+			padding: 0px;
+			position: relative;
+			overflow: hidden;
+			text-align: center;
+			float: unset;
+		}
+		.caption-style-2 img {
+			margin: 0px;
+			padding: 0px;
+			z-index: 4;
+			float: unset;
+			margin-top: 115px;
+		}
+		.res-camera-icon {
+			position: relative;
+			margin-top: 166px !important;
+			float: right !important;
+			margin-left: -150px !important;
+			z-index: 1;
+			margin-right: 60px !important;
+		}
+	}
+
+	@media(max-width: 480px) {
+		.res-camera-icon {
+			position: relative;
+			margin-top: 166px !important;
+			float: right !important;
+			margin-left: -172px;
+			z-index: 1;
+			margin-right: 121px;
+		}
+		.res-camera-icon-cover {
+			position: relative;
+			margin-top: 382px !important;
+			float: right !important;
+			margin-left: 0px;
+			z-index: 1;
+			align-items: right;
+			align-self: right;
+			align-content: right;
+			z-index: 1
+		}
+		.caption-style-2 li {
+			padding: 0px;
+			position: relative;
+			overflow: hidden;
+			text-align: center;
+			float: unset;
+		}
+		.caption-style-2 img {
+			margin: 0px;
+			padding: 0px;
+			z-index: 4;
+			float: unset;
+			margin-top: 115px;
+		}
+		.profile-res h3 {
+			margin-top: 26px !important;
+			text-align: center !important;
+			float: unset !important;
+			color: #000 !important;
+			padding: 0px !important;
+		}
+	}
+</style>
+<!--Add Friend Start-->
+<div *ngIf="!userNotFoundCheck">
+	<div class="container">
+		<div class="row">
+
+			<header class="profile-cover" [style.backgroundImage]="'url(' + imgCoverAdd + ')'">
+				<div class="res-camera-icon-cover" *ngIf="!imageResponse && !detectmob && !searchCheck">
+					<button style="background: none; border: 0px;" type="file" #upload (click)="PicCheck('cover');file.click()">
+						<img [src]="asset_url + 'images/camera-icon-res.png'">
+					</button>
+				</div>
+			</header>
+			<div *ngIf="loading" style="width: inherit;">
+				<app-progress-bar-component [width]="progress_upload" [height]="5"></app-progress-bar-component>
+			</div>
+			<div [hidden]="hide">
+				<input #file type="file" ng2FileSelect [uploader]="uploader">
+			</div>
+			<div class="margin-top-reverse">
+				<div class="col-sm-5">
+
+					<ul class="caption-style-2">
+						<li>
+							<img class="image" [src]="imgProfileAdd">
+							<div class="res-camera-icon" *ngIf=" !profileResponse && !detectmob && !searchCheck">
+								<button style="background: none; border: 0px;" type="file" #uploadProfile (click)="PicCheck('profile');file.click()">
+									<img [src]="asset_url + 'images/camera-icon-res.png'">
+								</button>
+							</div>
+							<div class="caption" *ngIf="!profileResponse && detectmob && !profileLoading">
+								<div *ngIf="!searchCheck">
+									<div class="blur"></div>
+									<button type="file" #uploadProfile (click)="PicCheck('profile');file.click()">
+										<div class="caption-text">
+											<h1>Upload Image</h1>
+										</div>
+									</button>
+								</div>
+							</div>
+
+							<div [hidden]="!profileLoading" class="loader-profile">
+								<div class="loading-icon">
+									<div class="rect rect1"></div>
+									<div class="rect rect2"></div>
+									<div class="rect rect3"></div>
+								</div>
+							</div>
+
+						</li>
+					</ul>
+					<div *ngIf="profileResponse" class="save-pic-btn">
+						<button type="submit"  (click)="submitPicData()" class="upload-botton">
+						Save Changes</button>
+					</div>
+					
+					<div class="profile-res">
+						<div class="des">
+							<h3>{{fullName}}</h3>
+						</div>
+					</div>
+					<div *ngIf="profileLoading" [ngStyle]="{'float': detectmob ? 'left' : 'unset'}" style="width: inherit;">
+						<app-progress-bar-component [width]="progress_upload" [height]="5"></app-progress-bar-component>
+					</div>
+				</div>
+
+				<div class="col-sm-7">
+					<div class="text-right" *ngIf="!searchCheck">
+
+						<div [hidden]="uploader.queue.length < 100">
+							<button type="button" #uploadButton class="btn btn-success btn-xs" (click)="uploader.uploadAll()">
+								<span class="glyphicon glyphicon-upload"></span> Upload
+							</button>
+						</div>
+						<button *ngIf="!imageResponse && detectmob" type="file" #upload (click)="PicCheck('cover');file.click()" [disabled]="isDisabled" class="upload-botton">
+							<img class="camera-icon" [src]="asset_url + 'images/camera-icon-1.png'" alt="" />Upload Cover Photo</button>
+						<button style="cursor: pointer;" (click)="routerLink('activity')" *ngIf="!imageResponse && detectmob" type="submit" class="upload-botton">
+						View Activity Log</button>
+
+						<button type="submit" *ngIf="imageResponse" (click)="submitPicData()" class="upload-botton">
+							Save Changes</button>
+					</div>
+					<div div class="text-right" *ngIf="searchCheck">
+						<add-friend-component [selfProfile]="myprofile" [userId]="id"></add-friend-component>
+					</div>
+				</div>
+				<div [hidden]="!loading" style="width: 100%;height: 100%;position: absolute;top: 0px;left: 0px">
+					<div class="loading-icon">
+						<div class="rect rect1"></div>
+						<div class="rect rect2"></div>
+						<div class="rect rect3"></div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="clear"></div>
+			<div class="boxstyle">
+				<div *ngIf="!detectmob">
+					<img class="res-timeline-icon" (click)="routerLink('profile')" [src]="asset_url + 'images/timeline-icon-res.png'">
+					<img class="res-about-icon" *ngIf="hideAbout" (click)="routerLink('about')" [src]="asset_url + 'images/about-icon-res.png'">
+					<img class="res-about-icon" (click)="routerLink('friends')" [src]="asset_url + 'images/friends-icon-res.png'">
+					<img class="res-about-icon" (click)="routerLink('photos')" [src]="asset_url + 'images/photo-icon-res.png'">
+				</div>
+				<ul *ngIf="detectmob" class="nav nav-tabs-4" role="tablist">
+					<li style="cursor: pointer;" role="presentation" class="active">
+						<a (click)="routerLink('profile')" aria-controls="home-1" role="tab" data-toggle="tab">Timeline</a>
+					</li>
+					<li style="cursor: pointer;" *ngIf="hideAbout" role="presentation">
+						<a (click)="routerLink('about')" aria-controls="profile-2" role="tab" data-toggle="tab">About</a>
+					</li>
+					<li style="cursor: pointer;" role="presentation">
+						<a (click)="routerLink('friends')" aria-controls="messages-3" role="tab" data-toggle="tab">Friends</a>
+					</li>
+					<li style="cursor: pointer;" role="presentation">
+						<a (click)="routerLink('photos')" aria-controls="settings-4" role="tab" data-toggle="tab">Photos</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<!-- Nav tabs -->
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-lg-1" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin: 0px; padding: 0px;">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<img style="width: 100%;" [src]="asset_url + 'images/photo-large.jpg'" alt="" /> </div>
+
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel">Work</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label class="control-label">Company</label>
+							<input type="text" class="form-control" placeholder="Where you have worked?">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Position</label>
+							<input type="text" class="form-control" placeholder="What is your job title?">
+						</div>
+						<div class="form-group">
+							<label class="control-label">City/Town
+							</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="control-label">Description</label>
+							<textarea class="form-control" id="message-text"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save Change</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="exampleModalLabel-1">COLLEGE</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label class="control-label">School</label>
+							<input type="text" class="form-control" placeholder="What school did you attend?">
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="control-label">Description</label>
+							<textarea class="form-control" id="message-text-1"></textarea>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Concentrations</label>
+							<input type="text" class="form-control">
+						</div>
+
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save Change</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="userNotFoundCheck">
+	<div class="container">
+		<div class="row">
+
+			<br />
+			<br />
+			<br />
+			<h2 style="font-size: 60px; padding-top: 130px; text-align: center;">User not Found</h2>
+			<h3 style="font-size: 30px; text-align: center; padding-top: 50px; color: #80c56a;">Error code: 404</h3>
+			<br />
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+.form-control-singup {
+    border-radius: 0px;
+    height: 47px;
+    border: 0px;
+    margin-top: 0px;
+    background-color: #fff;
+    border: 1px solid #d1d7d6;
+    width: 95%;
+    margin-top: 5px;
+    padding-left: 10px;
+    color: #aaaaaa;
+    float: left;
+    margin-bottom: 20px;
+}
+.creat-button {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 18px;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 5px solid #01afee;
+    background: #242d36;
+    color: #fff;
+    transition: all 400ms ease-out 0s;
+    margin-top: 20px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.creat-button:focus,
+.creat-button:hover {
+    transition: all 400ms ease-out 0s;
+    cursor: pointer;
+    color: #ef293a;
+    border-bottom: 5px solid #242d36;
+    background: #01afee;
+    color: #fff;
+}
+.clear
+{
+    clear: both;
+}

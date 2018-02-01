@@ -1,0 +1,30 @@
+<div (click)="navigate('profile')" style="margin-top: 85px;cursor: pointer;margin-bottom: 15px;"><dp-component [profilePic]="imgAddress" [dimension]="width"></dp-component>{{fullName}}</div>
+<div class="clear"></div>
+<form class="navbar-form navbar-left hidden-lg hidden-md hidden-sm">
+  <div class="form-group">
+    <input type="text" class="form-control-top" placeholder="Search">
+    <button type="submit" class="search-botton"><img [src]="asset_url + 'images/search-icon-top.png'" alt=""/></button>
+  </div>
+
+</form>
+<ul class="nav nav-pills nav-stacked">
+  <li><a href="#">New Feed</a></li>
+  <li style="cursor: pointer;"><a (click)="navigate('inbox')">Inbox</a></li>
+  <li><a href="#">Activity Log</a></li>
+  <li class="hidden-lg hidden-md"><a href="#">Reminder</a></li>
+  <li class="hidden-lg hidden-md"><a href="genral.html">Setting</a></li>
+  <li class="hidden-lg hidden-md"><a href="#">LogOut</a></li>
+</ul>
+<h2>Pages</h2>
+<div class="clear"></div>
+<list-component></list-component>
+<h2>Reminder</h2>
+<div class="clear"></div>
+<ul class="nav nav-pills nav-stacked">
+  <li><a href="#">Reminder 1</a></li>
+  <li><a href="#">Reminder 2</a></li>
+  <li><a href="#">Reminder 3</a></li>
+  <div class="text-center">
+    <a href="#" class="see-botton">Create Reminder</a>
+  </div>
+</ul>

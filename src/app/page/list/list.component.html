@@ -1,0 +1,12 @@
+<div *ngIf="!boxProfile">
+    <ul *ngFor="let name of title" class="nav nav-pills nav-stacked">
+        <li style="cursor: pointer;" (click)="navigate(name.id)"><a>{{name.title}}</a></li>
+
+    </ul>
+    <div class="text-center">
+        <a  class="see-botton" (click)=showConfirm()>Create Page</a>
+    </div>
+</div>
+<div *ngIf="boxProfile">
+
+</div>

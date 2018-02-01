@@ -1,0 +1,40 @@
+<div class="col-sm-12">
+    <div class="community-box">
+        <div class="page-like">
+            <h3>All Videos</h3>
+        </div>
+        <div *ngIf="!loading">
+            <div *ngFor="let post of posts;let counter=index">
+                <div class="col-sm-4" style="padding-left: 0px;">
+                    <video width="100%" controls>
+                        <source [src]="store_url + post.path" type="video/mp4"> Your browser does not support the video element.
+                    </video>
+                    <!-- <div class="album">
+                <h3>July 29</h3>
+                <h3><span>87 Views</span></h3>
+                </div> -->
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loading">
+            <div style="position:relative">
+                <loader-component></loader-component>
+            </div>
+        </div>
+        <!-- <div class="col-sm-4" style="padding-left: 0px;">
+            <a href="#"><img class="album-image" [src]="asset_url + 'images/album-image.png'" alt=""></a>
+            <div class="album">
+              <h3>July 28</h3>
+              <h3><span>5 Views</span></h3>
+            </div>
+        </div> -->
+        <!-- <div class="col-sm-4" style="padding-left: 0px;">
+            <a href="#"><img class="album-image" [src]="asset_url + 'images/album-image.png'" alt=""></a>
+            <div class="album">
+              <h3>July 26</h3>
+              <h3><span>10 Views</span></h3>
+            </div>
+        </div> -->
+        <div class="clear"></div>
+    </div>
+</div>

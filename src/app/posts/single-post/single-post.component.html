@@ -1,0 +1,109 @@
+<div *ngIf="!loader && !selfDeleted" class="timeline-background">
+
+    <div class="col-sm-11" style="cursor: pointer;" (click)="navigateToUser(post.user_id)">
+            <!-- <img class="timeline-image" [src]="imgProfile" alt=""/> -->
+        <a style="text-decoration: none;"> <div style="float:left"><dp-component [profilePic]="imgProfile" [dimension]="width"></dp-component></div><h3 style="width: 75%;">{{user.f_name}} {{user.l_name}}<a *ngIf="pagePost" style="margin-left: 10px;text-decoration: none;">posted on <a style="color:#01afee;margin-left: 10px;text-decoration: none;">{{page.title}}</a></a></h3>
+            <span style="margin-left: 12px;">{{post.created_at}}</span>
+    </a>
+    </div>
+    <div *ngIf="post.belongs_to === 'self'" class="col-sm-1">
+        <div style="cursor: pointer;" dropdown class="dropdown">
+            <span role="menu" dropdownToggle id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="caret"></span>
+            <ul *dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu1" style="margin-left: -151px;">
+                <li style="cursor: pointer;"><a (click)="editPost()">Edit</a></li>
+                <li role="separator" class="divider"></li>
+                <li style="cursor: pointer;"><a (click)="confirm()">Delete</a></li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="post.belongs_to !== 'self'" class="col-sm-1">
+        <div style="cursor: pointer;" dropdown class="dropdown">
+            <span role="menu" dropdownToggle id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="caret"></span>
+            <ul *dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu1" style="margin-left: -151px;">
+                <li style="cursor: pointer;"><a >Hide</a></li>
+                <li role="separator" class="divider"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div *ngIf="!editPostCheck" style="padding-left: 30px; word-wrap: break-word; line-height: 35px; width: 80%; padding-top: 20px; font-size: 30px; padding-bottom: 17px;">{{post.content}}</div>
+    <div *ngIf="editPostCheck">
+        <form (ngSubmit)="f.form.valid && submitEdit()" #f="ngForm" style="margin-left: 20px;
+        margin-top: 10px;
+        width: 94%;" novalidate>
+            <div class="form-group">
+                <input type="text"  class="form-control" style="border-radius: 4px;background-color:#f2f3f7;border:1px solid #e3e4e9;width: 95%;"
+                name="item" [(ngModel)]="post.content" required>
+            </div>
+            <button type="button" (click)="closeEdit()" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" [disabled]="!f.form.valid" class="btn btn-primary">Save Change</button>
+          </form>
+    </div>
+    <div *ngIf="post.media.length>0">
+        <div *ngIf="post.media[0].media_type==='picture'">
+            <a  (click)="openImage(0)"><img class="timelibe-big-image" [src]="store_url + post.media[0].picture.path" alt=""/></a>
+        </div>
+        <div *ngIf="post.media[0].media_type==='audio'">
+            <audio controls class="audio-player">
+                <source [src]="store_url + post.media[0].audio.path" type="audio/mp3"> Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div *ngIf="post.media[0].media_type==='video'">
+            <video width="100%" controls>
+                <source [src]="store_url + post.media[0].video.path" type="video/mp4"> Your browser does not support the video element.
+            </video>
+        </div>
+    </div>
+    <div *ngIf="post.likes.length>0" style="cursor:pointer">
+        <div *ngIf="flag===true">
+            <div class="col-sm-2 col-xs-2">
+                <a (click)="countClick();unlikePost(post.id,counter)"><img class="like" [src]="asset_url + 'images/like-icon.png'" alt=""/><h4 style="color: blue;">Unlike</h4></a>
+            </div>
+        </div>
+        <div *ngIf="flag===false" style="cursor:pointer">
+            <div class="col-sm-2 col-xs-2">
+                <a (click)="countClick();likePost(post.id,counter)"><img class="like" [src]="asset_url + 'images/like-icon.png'" alt=""/><h4>Like</h4></a>
+            </div>
+        </div>
+    </div>
+    <div (click)="countClick();likePost(post.id,counter)" *ngIf="post.likes.length<1" style="cursor:pointer">
+        <div class="col-sm-2 col-xs-2">
+            <a><img class="like" [src]="asset_url + 'images/like-icon.png'" alt=""/><h4>Like</h4></a>
+        </div>
+    </div>
+    <div class="col-sm-3 col-xs-3">
+        <img class="like" [src]="asset_url + 'images/comment-icon.png'" alt="" />
+        <h4>Comment</h4>
+    </div>
+    <div class="col-sm-2 col-xs-2">
+        <img class="like" [src]="asset_url + 'images/share-icon.png'" alt="" />
+        <h4>Share</h4>
+    </div>
+    <div class="clear"></div>
+    <div class="bordder-bottom"></div>
+    <!-- <h3 *ngIf="post.likes.length > 2" style="text-transform: none; color: #5d5d5d; font-size: 15px;">Faliak Khan and 20 other</h3> -->
+    <h3 style="text-transform: none; color: #5d5d5d; font-size: 15px;"><span *ngIf="post.likes.length > 0">{{likeFieldTxt}} Liked</span></h3>
+    <div class="clear"></div>
+    <add-comment [comments]="post.comment" [post]="post"></add-comment>
+    <div *ngIf="comments.length>0">
+        <div *ngFor='let comment of comments ; let counter=index'>
+            <display-comment [comment]="comment" [counter]="counter" (deleted)="deleteComment($event)"></display-comment>
+
+        </div>
+        <div class="clear"></div>
+        <div *ngIf="view_flag">
+            <button type="submit" class="view-botton" (click)="viewAllComments()">View all comments</button>
+        </div>
+        <div *ngIf="view_flag===false">
+            <button type="submit" class="view-botton" (click)="getComments()">View less comments</button>
+        </div>
+    </div>
+
+
+</div>
+<div *ngIf="loader">
+    <div style="position:relative">
+        <loader-component></loader-component>
+    </div>
+
+</div>

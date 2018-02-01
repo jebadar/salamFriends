@@ -1,0 +1,60 @@
+.login-button {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 15px;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 3px solid #80c56a;
+    background: #242d36;
+    color: #fff;
+    transition: all 400ms ease-out 0s;
+    margin-top: 20px;
+}
+
+.login-button.focus,
+.login-button:focus,
+.login-button:hover {
+    transition: all 400ms ease-out 0s;
+    cursor: pointer;
+    color: #ef293a;
+    border-bottom: 3px solid #242d36;
+    background: #80c56a;
+    color: #fff;
+}
+.form-control {
+    border-radius: 0px;
+    height: 47px;
+    border: 0px;
+    margin-top: 0px;
+}
+
+.form-control-singup {
+    border-radius: 0px;
+    height: 47px;
+    border: 0px;
+    margin-top: 0px;
+    background-color: #fff;
+    border: 1px solid #d1d7d6;
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 10px;
+    color: #aaaaaa;
+}
+@media(max-width: 320px) {
+    .form-control {
+        border-radius: 0px;
+        height: 47px;
+        border: 0px;
+        margin-top: 33px;
+    }
+}
+@media(max-width: 360px) {
+    .form-control {
+        border-radius: 0px;
+        height: 47px;
+        border: 0px;
+        margin-top: 33px;
+    }
+}

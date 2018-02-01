@@ -1,0 +1,69 @@
+<div *ngIf="!accessTokkenFlag">
+  <div *ngIf="!response">  
+    <div *ngIf="!resetFlag">  
+      <div *ngIf="!error">
+        <!-- <div *ngIf="!sendedMail"> -->
+        <form class="form-inline" (ngSubmit)="f.form.valid && reset()" #f="ngForm" novalidate>
+        <div class="form-group"[ngClass]="{'has-error':f.submitted}" [formGroup]="resetForm">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter email to reset password" name="email" formControlName="email">
+        </div>
+        <button type="submit" class="login-button" [disabled]="!f.form.valid"><span *ngIf="!loading">Send</span><span *ngIf="loading">Processing</span></button>
+        </form>
+        <a style="cursor: pointer;" (click) = "cancel()">Cancel</a>
+        <!-- </div> -->
+        <!-- <div *ngIf="sendedMail">
+          <div class="found">
+          <h3>Email sended succesfully</h3>
+          </div>
+        </div>
+      </div> 
+      <div *ngIf="error">
+        <div class="found">
+        <h3>Email not found</h3>
+        </div> -->
+      </div>
+    </div>
+    <div *ngIf="resetFlag">
+      <div *ngIf="!loading">
+        <form class="form-inline" (ngSubmit)="f.form.valid && setPassword()" #f="ngForm" novalidate>
+          <div class="form-group"[ngClass]="{'has-error':f.submitted}"[formGroup]="newPasswordForm">
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password" formControlName="password">
+            </div>
+            <div class="form-group"[ngClass]="{'has-error':f.submitted}"[formGroup]="newPasswordForm">
+            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Repeat Password" name="confirmPassword" formControlName="confirmPassword">
+            </div>
+          
+          <button type="submit" class="login-button" [disabled]="!f.form.valid">Reset</button>
+        </form>
+      </div>
+      <div *ngIf="loading">
+        
+        <loader-component></loader-component>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <h3>Please wait while your request is processing</h3>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="response">
+    <div *ngIf="!errorReset">
+      <h3>You have succesfully reset your password</h3>
+      <h2 style="line-height: 40px;">Please login with your new password</h2>
+    </div>
+    <div *ngIf="errorReset">
+    <h3>Error in Resetting your password</h3>
+    <h4>Try Again</h4>
+    </div>
+  </div>
+</div>
+<div *ngIf="accessTokkenFlag">
+  <h3>Invalid URL</h3>
+  <h4>Please Try again</h4>
+</div>  

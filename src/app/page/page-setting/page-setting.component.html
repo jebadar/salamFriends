@@ -1,0 +1,111 @@
+<div role="tabpanel" [style.marginTop.px]="margin" class="tab-pane" id="profile-2">
+  <div class="about-bg">
+    <a href="#"><img class="about-icon" [src]="asset_url + 'images/about-icon.png'" alt=""/>Page Settings</a>
+  </div>
+  <div class="request-bg-1">
+    <div>
+
+      <!-- Nav tabs -->
+      <div class="col-lg-4 col-sm-4" style="padding-left: 0px;">
+        <ul class="nav nav-tabs-new " role="tablist">
+          <li role="presentation" class="active"><a aria-controls="home-" role="tab" data-toggle="tab">General</a></li>
+        </ul>
+      </div>
+
+      <!-- Tab panes -->
+      <div class="col-lg-8 col-sm-8">
+        <div class="tab-content" style="margin-top: 20px;">
+          <div role="tabpanel" class="tab-pane active" id="home-">
+              <h3 style="color: #b0b0b0; padding-left: 0px; margin: 0px;">General Settings</h3>
+              <div class="clear"></div>
+              <div class="place-line"></div>
+              <a style="cursor: pointer;" *ngIf="!editClick" (click)="edit()"><img class="place-image" style="margin-top: 20px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" [src]="asset_url + 'images/add-icon.png'" alt=""/><h3 style="padding-top: 10px; margin-left: 0px; width: 78%; padding-top: 15px;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit Settings</h3></a>
+              
+            <!-- <div class="col-sm-12">
+              <h4>Name:  {{pageDataInput.title}} <a style="text-align:right"><button>Edit</button></a></h4>  
+            </div>
+            <div class="col-sm-12">
+                <h4>Category:  {{pageDataInput.category.title}} <a style="text-align:right"><button>Edit</button></a></h4>
+            </div> -->
+            <div *ngIf="!editClick">
+            <table style="margin-top: 80px;">
+                <thead>
+                  <tr>
+                    <th>
+                      <a style="text-transform:uppercase; padding-right: 98px; line-height: 40px; color: #01afee; box-sizing: unset; float: left; width: 100%; ">Post Approval</a>
+                    </th>
+                    <td>
+                      <a><span *ngIf="settings.approval == 1">Yes</span><span *ngIf="settings.approval == 0">No</span></a>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        <a style="text-transform:uppercase; padding-right: 98px; line-height: 40px; color: #01afee; box-sizing: unset; float: left; width: 100%; ">Comments on posts</a>
+                      </th>
+                      <td>
+                        <a><span *ngIf="settings.comment == 1">Allowed</span><span *ngIf="settings.comment == 0">Not Allowed</span></a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        <a style="text-transform:uppercase; padding-right: 98px; line-height: 40px; color: #01afee; box-sizing: unset; float: left; width: 100%; ">Get notifications</a>
+                      </th>
+                      <td>
+                        <a><span *ngIf="settings.notification == 1">Yes</span><span *ngIf="settings.notification == 0">No</span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                        <th>
+                          <a style="text-transform:uppercase; padding-right: 98px; line-height: 40px; color: #01afee; box-sizing: unset; float: left; width: 100%; ">Allow post on page</a>
+                        </th>
+                        <td>
+                          <a><span *ngIf="settings.post == 1">Allowed</span><span *ngIf="settings.post == 0">Not Allowed</span></a>
+                        </td>
+                      </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+              <div *ngIf="editClick">
+                  <form (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                      <label class="control-label" style="text-transform: uppercase; color: #01afee;">Post Approval</label>
+                      <select class="form-control-singup" name="approval" [(ngModel)]="settingsArr.approval">
+                        <option *ngFor="let x of approve" [selected]="x.value === settingsArr.approval">{{x.value}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" style="text-transform: uppercase; color: #01afee;">Comments on posts</label>
+                        <select class="form-control-singup" name="comment" [(ngModel)]="settingsArr.comment">
+                          <option *ngFor="let x of allowed" [selected]="x.value === settingsArr.comment">{{x.value}}</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label" style="text-transform: uppercase; color: #01afee;">Get notifications</label>
+                          <select class="form-control-singup" name="notification" [(ngModel)]="settingsArr.notification">
+                            <option *ngFor="let x of approve" [selected]="x.value === settingsArr.notification">{{x.value}}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="text-transform: uppercase; color: #01afee;">Allow post on page</label>
+                            <select class="form-control-singup" name="post" [(ngModel)]="settingsArr.post">
+                              <option *ngFor="let x of allowed" [selected]="x.value === settingsArr.post">{{x.value}}</option>
+                            </select>
+                          </div>
+      
+                    <button type="button" (click)="closeEdit()" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" [disabled]="!f.form.valid" class="btn btn-primary">Save Change</button>
+                  </form>
+                </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<form (keydown)="keyDownFunction($event)">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+        <div class="input-group">
+            <span class="input-group-addon"><dp-component [profilePic]="comment.user.profile_pic" [dimension]="41"></dp-component></span>
+            <div *ngIf="editFlag">
+                <div class="input-group addon" style="width:100%">
+                    <input type="text" [value]="commentInput" name="comm" [(ngModel)]="comm" class="form-control" id="inputGroupSuccess4" placeholder="Write a comment">
+                    <span class="input-group-btn"><button (click)="cancelEdit()" style="height: 48px;" class="btn btn-default" type="button" id="filter-clear">X</button></span>
+                </div>
+            </div>
+            <div *ngIf="editFlag===false">
+                <h3 style="padding: 0px;margin: 0px;">{{fullName}}</h3><br>
+                <p style="padding: 0px;margin: 0px;">{{comment.description}}</p>
+                <p style="padding: 0px;margin: 0px;" *ngIf="enableEditBtn"><a style="cursor:pointer;margin-left:5px;" (click)="edit()">Edit</a> <a style="cursor:pointer;margin-left:5px;" (click)="confirm()">Delete</a></p>
+            </div>
+
+        </div>
+    </div>
+</form>

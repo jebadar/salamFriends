@@ -1,0 +1,29 @@
+<div *ngIf="detailCheck" class="intro-bg">
+  <a href="#"><img class="timeline-image" style="margin-right: 0px;" [src]="asset_url + 'images/intro-icon.png'" alt=""/><h3 style="margin-top: 5px; width: 0%;">{{infoArray.title}}</h3></a>
+  <div class="clear"></div>
+  <div class="intro-bottom"></div>
+  <a>
+    <h2 style="padding-left: 0xp; padding-right: 0xp; padding-bottom: 0px; padding-top: 0px; line-height: 30px; margin: 0px;">{{title[0]}} <br><span *ngIf="detailCheck" style="color: #80c56a;">{{detailArray1[0]}}</span></h2>
+  </a>
+  <a>
+    <h2 style="padding-left: 0xp; padding-right: 0xp; padding-bottom: 0px; padding-top: 0px; line-height: 30px; margin: 0px;">{{title[1]}} <br><span *ngIf="detailCheck" style="color: #80c56a;">{{detailArray1[1]}}</span></h2>
+  </a>
+  <a>
+    <h2 style="padding-left: 0xp; padding-right: 0xp; padding-bottom: 0px; padding-top: 0px; line-height: 30px; margin: 0px;">{{title[2]}} <br><span *ngIf="detailCheck" style="color: #80c56a;">{{detailArray1[2]}}</span></h2>
+  </a>
+  <a>
+    <h2 style="padding-left: 0xp; padding-right: 0xp; padding-bottom: 0px; padding-top: 0px; line-height: 30px; margin: 0px;">{{title[3]}} <br><span *ngIf="detailCheck" style="color: #80c56a;">{{detailArray1[3]}}</span></h2>
+  </a>
+
+</div>
+<div [hidden]="!loading" style="width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;background: rgba(0, 0, 0, 0.2);">
+  <div class="loading-icon">
+    <div class="rect rect1"></div>
+    <div class="rect rect2"></div>
+    <div class="rect rect3"></div>
+  </div>
+</div>

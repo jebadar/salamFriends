@@ -1,0 +1,14 @@
+<div>
+<form (keydown)="keyDownFunction($event,post.id,counter)">
+  <div class="form-group has-success has-feedback">
+      <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+      <div class="input-group">
+          <span class="input-group-addon"><dp-component [profilePic]="user.profile_pic" [dimension]="widthPic"></dp-component></span>
+          <input type="text" [value]="commentInput" name="comm" [(ngModel)]="comm" class="form-control" id="inputGroupSuccess4" placeholder="Write a comment">
+      </div>
+  </div>
+</form>
+</div>
+<div *ngIf="loading">
+      <loader-component [width]="50" ></loader-component>
+  </div>

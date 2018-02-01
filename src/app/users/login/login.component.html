@@ -1,0 +1,21 @@
+  <div *ngIf="reset">
+    <reset-component (cancelCheck)="setFlag($event)"></reset-component>
+  </div>
+<div *ngIf="!reset">
+  <form class="form-inline" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div class="form-group"[ngClass]="{'has-error':f.submitted}" [formGroup]="loginForm">
+      <input type="text" class="form-control" id="exampleInputName2" placeholder="Email" name="email" formControlName="email">
+      
+     </div>
+    <div class="form-group"[ngClass]="{'has-error':f.submitted}" [formGroup]="loginForm">
+      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" name="password" formControlName="password">
+    
+    </div>
+    <button type="submit" class="login-button" ><span *ngIf="!loading">Log In</span><span *ngIf="loading">Processing</span></button>
+    <!-- <a style=" position: absolute; margin-left: 642px;" *ngIf="f.submitted && !email.valid || error" class="help-block"><span *ngIf="!error">Email or Password is required</span><span *ngIf="error">Email or Password is incorrect</span></a> -->
+  </form>
+
+ <a style="cursor: pointer;" (click) = "forgetPassword()">Forget Password</a>
+</div>
+
+ 

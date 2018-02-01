@@ -1,0 +1,37 @@
+<div [hidden]="hide">
+  <input #file type="file" ng2FileSelect [uploader]="uploader" accept="image/png,image/jpeg">
+</div>
+<div [hidden]="uploader.queue.length < 100">
+  <button type="button" #uploadButton class="btn btn-success btn-xs" (click)="uploader.uploadAll()">
+        <span class="glyphicon glyphicon-upload"></span> Upload
+      </button>
+</div>
+<div role="tabpanel" class="tab-pane" id="product">
+  <textarea class="form-control" rows="3" [(ngModel)]="post.content" #content="ngModel" placeholder="Say something about this product..."></textarea>
+  <div class="status-bg">
+    <div class="text-right">
+      <a #upload (click)="file.click()" class="photo-botton"><img class="status-image" [src]="asset_url + 'images/photo-icon-1.png'" alt=""/>Photo</a><span>{{uploadedImage}}</span>
+      <form class="form-inline">
+        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Rs">
+      </form>
+      <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Public
+											<span class="caret"></span>
+										</button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul>
+        </div>
+      </div>
+      <button class="post-botton" (click)="submitPost()">Post</button>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress_bar + '%' }">
+        {{progress_bar}}%
+      </div>
+    </div>
+  </div>
+</div>

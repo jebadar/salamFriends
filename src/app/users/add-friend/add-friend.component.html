@@ -1,0 +1,20 @@
+<div *ngIf="!detectmob" class="text-center">
+<div *ngIf="!myBox">
+  <button *ngIf="!blockCheck && !loading" type="submit" (click)="addFriendClick()" [disabled]="isDisabled || pendingCheck" class="{{btnClass}}"><span *ngIf="!loading">{{buttonText}}</span><span *ngIf="loading">Processing</span></button>
+  <button *ngIf="!acceptRqstCheck && cancelRqstCheck && !loading" type="submit" [disabled]="isDisabled" (click)="cancelRqst('cancel')" class="{{btnClass}}"><span *ngIf="!loading">Cancel</span><span *ngIf="loading">Processing</span></button>
+  <button *ngIf="acceptRqstCheck && !cancelRqstCheck && !blockCheck && !loading" [disabled]="isDisabled" type="submit" (click)="cancelRqst('reject')" class="{{btnClass}}"><span *ngIf="!loading">Reject</span><span *ngIf="loading">Processing</span></button>
+  <button *ngIf="!friendlistCheck && !loading" type="submit" (click)="blockUser()" [disabled]="isDisabled" class="{{btnClass}}"><span *ngIf="!loading">{{blockBtn}}</span><span *ngIf="loading">Processing</span></button>
+  <button *ngIf="loading" [disabled]="isDisabled" class="{{btnClass}}">Processing</button>
+  
+</div>
+</div>
+<div *ngIf="detectmob">
+    <div *ngIf="!myBox" >
+        <button *ngIf="!blockCheck && !loading" type="submit" (click)="addFriendClick()" [disabled]="isDisabled || pendingCheck" class="{{btnClass}}"><span *ngIf="!loading">{{buttonText}}</span><span *ngIf="loading">Processing</span></button>
+        <button *ngIf="!acceptRqstCheck && cancelRqstCheck && !loading" type="submit" [disabled]="isDisabled" (click)="cancelRqst('cancel')" class="{{btnClass}}"><span *ngIf="!loading">Cancel</span><span *ngIf="loading">Processing</span></button>
+        <button *ngIf="acceptRqstCheck && !cancelRqstCheck && !blockCheck && !loading" [disabled]="isDisabled" type="submit" (click)="cancelRqst('reject')" class="{{btnClass}}"><span *ngIf="!loading">Reject</span><span *ngIf="loading">Processing</span></button>
+        <button *ngIf="!friendlistCheck && !loading" type="submit" (click)="blockUser()" [disabled]="isDisabled" class="{{btnClass}}"><span *ngIf="!loading">{{blockBtn}}</span><span *ngIf="loading">Processing</span></button>
+        <button *ngIf="loading" [disabled]="isDisabled" class="{{btnClass}}">Processing</button>
+        
+      </div>
+</div>

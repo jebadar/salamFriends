@@ -1,0 +1,117 @@
+<!--New Feed Start-->
+<div class="row" [style.marginTop.px]="margin">
+    <div *ngIf="detectmob" class="col-sm-2 col-md-2">
+            <div [hidden]="uploader.queue.length < 100">
+                    <button type="button" #uploadButton class="btn btn-success btn-xs" (click)="uploader.uploadAll()">
+                    <span class="glyphicon glyphicon-upload"></span> Upload
+                </button>
+                </div>
+        <div style="margin-top: 90px; text-align:center;margin-bottom: 15px;">
+            <ul class="caption-style-2">
+                <li>
+                    <img class="image_page" [src]="imgProfileAdd">
+                    
+                    <div class="caption" *ngIf="!profileResponse && adminCheck">
+                        <div>
+                            <div class="blur"></div><button type="file" #uploadProfile (click)="PicCheck('profile');file.click()">
+                                <div class="caption-text">
+                                    <h1>Upload Image</h1>
+                                </div>
+                                </button>
+                        </div>
+                    </div>
+                    <div [hidden]="!profileLoading" style="width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;background: rgba(0, 0, 0, 0.2);">
+                        <div class="loading-icon">
+                            <div class="rect rect1"></div>
+                            <div class="rect rect2"></div>
+                            <div class="rect rect3"></div>
+                        </div>
+                    </div>
+                    <button style="margin-top: 0px !important" type="submit" *ngIf="profileResponse" (click)="submitPicData()" class="upload-botton">Save Changes</button>
+                </li>
+            </ul>
+            <div class="profile-res">
+                <h3>{{pageDataInput.title}}</h3>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <ul class="nav nav-pills nav-stacked">
+            <li (click)="routerLink('home')"><a>Home</a></li>
+            <li (click)="routerLink('about')"><a>About</a></li>
+            <li (click)="routerLink('photos')"><a>Photos</a></li>
+            <li (click)="routerLink('videos')"><a>Videos</a></li>
+            <li (click)="routerLink('posts')"><a>Posts</a></li>
+        </ul>
+    </div>
+    <div [hidden]="hide">
+        <input #file type="file" ng2FileSelect [uploader]="uploader">
+    </div>
+    <div class="col-sm-10 col1">
+        <header class="page-cover" [style.background]="'url(' + imgCoverAdd + ')'">
+            <button *ngIf="!imageResponse && detectmob && adminCheck" style="float: right; margin-top: 363px; margin-right: 20px;" type="file" #upload (click)="PicCheck('cover');file.click()" [disabled]="isDisabled" class="upload-botton"><img class="camera-icon" [src]="asset_url + 'images/camera-icon-1.png'" alt=""/>Upload Cover Photo</button>
+            <button type="submit" *ngIf="imageResponse"  style="float: right; margin-top: 363px; margin-right: 20px;" (click)="submitPicData()" class="upload-botton">Save Changes</button>
+            <a *ngIf="loading" style="width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;">
+                <div class="loading-icon">
+                    <div class="rect rect1"></div>
+                    <div class="rect rect2"></div>
+                    <div class="rect rect3"></div>
+                </div>
+            </a>
+        </header>
+        
+        <div *ngIf="!detectmob">
+            <img class="image" style="width:70px;height:70px; float: left; margin-left: 17px;" [src]="imgAddress" alt="">
+            <div class="profile-res">
+                <h3 style="width: 50%; padding-top: 30px;">{{pageDataInput.title}}</h3>
+                <div *ngIf="!detectmob" style="background-color: #fff;">
+                        <button style="background: none; border: 0px;" type="file" #uploadProfile (click)="file.click()">
+                        <img style="margin-top: 37px;"  [src]="asset_url + 'images/camera-icon-res.png'"></button>
+                </div>
+            </div>
+        </div>
+        <div class="page-inner-bg">
+            
+            <div *ngIf="detectmob">
+                <a *ngIf="likedCheck" (click)="unlikePage()" [class.disabled]="disabled" style="cursor: pointer;" class="page-like-botton">
+                    <img style="margin-right: 15px;" [src]="asset_url + 'images/page-like-icon.png'" alt=""><span *ngIf="!disabled">Liked</span><span *ngIf="disabled">Processing</span></a>
+
+                <a *ngIf="!likedCheck" (click)="likePage()" [class.disabled]="disabled" style="cursor: pointer;" class="page-like-botton">
+                    <img style="margin-right: 15px;" [src]="asset_url + 'images/like-hover.png'" alt=""><span *ngIf="!disabled">Like</span><span *ngIf="disabled">Processing</span></a>
+
+                <a href="#" class="page-like-botton">
+                        <img style="margin-right: 15px;" [src]="asset_url + 'images/follow-hover.png'" alt="">Follow                       
+                    <!-- <img style="margin-right: 15px;" [src]="asset_url + 'images/page-follow-icon.png'" alt="">Follow -->
+                </a>
+                <a href="#" class="page-like-botton">     
+                    <img style="margin-right: 15px;" [src]="asset_url + 'images/share-hover.png'" alt="">Share                       
+                    <!-- <img style="margin-right: 15px;" [src]="asset_url + 'images/page-share-icon.png'" alt="">Share -->
+                </a>
+            </div>
+            <div *ngIf="!detectmob" class="boxstyle" style="margin-top: 10px !important;">
+                <img class="res-timeline-icon" (click)="routerLink('profile')" [src]="asset_url + 'images/page-like-icon.png'">
+                <img class="res-about-icon" (click)="routerLink('about')" [src]="asset_url + 'images/page-follow-icon.png'">
+                <img class="res-about-icon" (click)="routerLink('friends')" [src]="asset_url + 'images/page-share-icon.png'">
+            </div>
+            <div *ngIf="!detectmob" class="boxstyle">
+                <div>
+
+                    <a (click)="routerLink('home')"><img class="res-timeline-icon" >Home</a>
+                    <a (click)="routerLink('about')"><img class="res-about-icon" >About</a>
+                    <a (click)="routerLink('photos')"><img class="res-about-icon" >Photos</a>
+                    <a (click)="routerLink('videos')"><img class="res-about-icon"  >Videos</a>
+                    <a (click)="routerLink('posts')"><img class="res-about-icon"  >Posts</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

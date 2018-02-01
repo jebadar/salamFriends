@@ -1,0 +1,15 @@
+<div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
+    <div *ngFor="let post of posts ; let counter=index">
+        <single-post-component [deleteRefer]="deleteVar" [post]="post" [postCheck] = "checkToSend"></single-post-component>
+    </div>
+    <div *ngIf="loader">
+        <div style="position:relative">
+            <loader-component></loader-component>
+        </div>
+    
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <h6>{{endText}}</h6>
+    </div>
+
+</div>

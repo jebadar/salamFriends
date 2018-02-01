@@ -1,0 +1,311 @@
+
+/*************************
+*******Salam Friends******
+**************************/
+
+/*************************
+********Body CSS**********
+**************************/
+
+body {
+  font-family:"Khmer UI";
+  font-size: 14px;
+  line-height: 24px;
+  color: #242d36;
+   background-color: #e9ebee;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#a0bc9d));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #fff, #a0bc9d);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #fff, #a0bc9d);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, #fff, #a0bc9d);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #fff, #a0bc9d);
+}
+/*************************
+********Heading CSS**********
+**************************/
+h1
+{
+	font-size:30px;
+	color:#242d36;
+	font-weight:normal;
+	text-align:left;
+	float: left;
+	text-transform:uppercase;
+	line-height:50px;
+	width: 100%;
+	padding: 0px;
+}
+h1 span
+{
+	font-size:30px;
+	color:#80c56a;
+	font-weight:bold;
+	font-weight:bold;
+text-transform:uppercase;
+}
+h2
+{
+	font-size:30px;
+	color:#242d36;
+	font-weight:normal;
+	text-align:left;
+	float: left;
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 0px;
+	padding-top: 25px;
+}
+h3
+{
+	font-size:24px;
+	color:#242d36;
+	font-weight:normal;
+	text-align:left;
+	float: left;
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 24px;
+}
+h4
+{
+	font-size:18px;
+	color:#242d36;
+	font-weight:normal;
+	text-align:left;
+	float: left;
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 20px;
+}
+h5
+{
+	font-size:14px;
+	color:#242d36;
+	font-weight:normal;
+	text-align:left;
+	float: left;
+	text-transform:uppercase;
+	width: 100%;
+	line-height: 20px;
+	margin-top: 10px;
+}
+.clear{
+	clear:both;
+}
+/*************************
+********Nav CSS**********
+**************************/
+.nav-tabs>li{
+	cursor: pointer;
+}
+
+.nav-tabs>li.active{
+	cursor: pointer;
+}
+.navbar{
+	/* min-height:100px; */
+}
+.navbar-default .navbar-toggle
+{
+	margin-top:32px;
+	border: 1px solid #fff;
+}
+.navbar-default .navbar-toggle .icon-bar{
+	background-color: #fff;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+
+	border: 0px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	background-color:#80c56a;
+}
+.navbar-default{
+	background-color: #01afee;
+	border: 0px;
+	border-top: 2px solid #80c56a;
+	border-radius: 0px;
+}
+.navbar-brand{
+	padding: 0px 15px;
+}
+input[type="radio"], input[type="checkbox"]{
+	float:left;
+	margin-right: 10px;
+}
+/*************************
+********Form Control CSS**********
+**************************/
+.form-control{
+	border-radius:0px;
+	height: 47px;
+	border: 0px;
+	margin-top: 0px;
+}
+.form-control-singup{
+	border-radius:0px;
+	height: 47px;
+	border: 0px;
+	margin-top: 0px;
+	background-color: #fff;
+	border: 1px solid #d1d7d6;
+	width: 100%;
+	margin-top: 5px;
+	padding-left: 10px;
+	color: #aaaaaa;
+}
+/*************************
+********login Botton CSS**********
+**************************/
+.login-button
+{
+	padding-top:11px;
+	padding-bottom:11px;
+	padding-left:30px;
+	padding-right:30px;
+	font-size:15px;
+	border-radius:0px;
+	border: 0px;
+	border-bottom: 3px solid #80c56a;
+	background:#242d36;
+	color:#fff;
+	transition: all 400ms ease-out 0s;
+	margin-top: 20px;
+}
+
+.login-button.focus, .login-button:focus, .login-button:hover
+{
+	transition: all 400ms ease-out 0s;
+	cursor:pointer;
+	color:#ef293a;
+	border-bottom: 3px solid #242d36;
+	background:#80c56a;
+	color:#fff;
+}
+.creat-button
+{
+	padding-top:11px;
+	padding-bottom:11px;
+	padding-left:30px;
+	padding-right:30px;
+	font-size:18px;
+	border-radius:0px;
+	border: 0px;
+	border-bottom: 5px solid #01afee;
+	background:#242d36;
+	color:#fff;
+	transition: all 400ms ease-out 0s;
+	margin-top: 20px;
+	width: 100%;
+	text-transform: uppercase;
+}
+
+.creat-button.focus, .creat-button:focus, .creat-button:hover
+{
+	transition: all 400ms ease-out 0s;
+	cursor:pointer;
+	color:#ef293a;
+	border-bottom: 5px solid #242d36;
+	background:#01afee;
+	color:#fff;
+}
+.social-image
+{
+	width: 100%;
+	margin-top: 30px;
+}
+.footer-bubble{
+	width: 100%;
+	padding-top:130px;
+	background: url(./assets/images/footer.png) repeat-x;
+	
+}
+.footer-bg{
+	width: 100%;
+	background-color: #80c56a;
+}
+.footer-bg p{
+	font-size:14px;
+	color:#fff;
+	padding:0px;
+	line-height:20px;
+	padding-bottom: 20px;
+}
+.topnav {
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: left;
+  padding: 0px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topnav a:hover {
+  color: #242d36;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .form-control-top {
+	border-radius: 4px;
+	border: 1px solid #dee0e5;
+	width: 100% !important;
+	height: 35px;
+	padding-left: 10px;
+	font-size: 12px;
+	color: #a2a2a2;
+}
+
+.completer-dropdown-holder img{
+	max-width: 25px;
+	max-height: 25px;
+}
+
+.completer-item-text{
+	line-height: 1;
+}
+.completer-item-text-image{
+	line-height: 1;
+}
+.completer-title{
+	margin: 0px;
+	padding: 0px;
+	margin-left: 5px;
+	line-height: 1;
+}
+.completer-description{
+	display: block;
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 5px;
+	line-height: 1;
+}
+.navbar-left{
+	width: 25.2%;
+}
+
+.lightbox{
+	position: fixed;
+}

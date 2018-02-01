@@ -1,0 +1,52 @@
+<div *ngIf="!tabPhotos" class="intro-bg">
+  <a><img class="timeline-image" style="margin-right: 0px;" [src]="asset_url + 'images/photo.png'" alt=""/><h3 style="margin-top: 5px; width: 0%;">Photo</h3></a>
+  <div class="clear"></div>
+  <div class="intro-bottom"></div>
+  <div *ngFor="let post of posts;let count = index">
+      <div *ngIf="count < 6" class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+        <a (click)="openImage(counter)"><dp-component [thumPhoto]="thumPhoto" [profilePic]="post.path"></dp-component></a>
+      </div>
+  </div>
+  <div *ngIf="loadBtnCheck" style = "margin-left: 239px;">
+    <button type="submit" class="view-botton" (click)="viewAllPhotos()">View all photos</button>
+  </div><!-- <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+    <a href="#"><img class="photo-thum" data-toggle="modal" data-target=".bs-example-modal-lg-1" [src]="asset_url + 'images/photo-1.png'" alt=""/></a>
+  </div>
+  <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+    <a href="#"><img class="photo-thum-1" data-toggle="modal" data-target=".bs-example-modal-lg-1" [src]="asset_url + 'images/photo-1.png'" alt=""/></a>
+  </div>
+  <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+    <a href="#"><img class="photo-thum" data-toggle="modal" data-target=".bs-example-modal-lg-1" [src]="asset_url + 'images/photo-1.png'" alt=""/></a>
+  </div>
+  <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+    <a href="#"><img class="photo-thum" data-toggle="modal" data-target=".bs-example-modal-lg-1" [src]="asset_url + 'images/photo-1.png'" alt=""/></a>
+  </div>
+  <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+    <a href="#"><img class="photo-thum-1" data-toggle="modal" data-target=".bs-example-modal-lg-1" [src]="asset_url + 'images/photo-1.png'" alt=""/></a>
+  </div> -->
+</div>
+
+<div *ngIf="tabPhotos " role="tabpanel" class="tab-pane" id="settings-4">
+    <div class="about-bg">
+      <a href="#"><img class="about-icon" [src]="asset_url + 'images/profile-photo-icon.png'" alt=""/>Photos</a>
+    </div>
+    <div class="friend-bg">
+      <div *ngFor="let post of posts;let counter = index">
+        <div class="col-sm-2">
+          <a (click)="openImage(counter)"><dp-component [postPhoto]="postPhoto" [profilePic]="post.path"></dp-component></a>
+          <a style="float: left;margin-left: 32px;text-decoration: none;"><span>{{post.likes.length}}</span><img class="photo-tab-like" [src]="asset_url + 'images/like-icon.png'" alt=""/>
+            <span>{{post.comment.length}}</span><img class="photo-tab-like" [src]="asset_url + 'images/comment-icon.png'" alt="" />
+            <span>{{post.shares.length}}</span><img class="photo-tab-like" [src]="asset_url + 'images/share-icon.png'" alt="" /></a>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div *ngIf="loading">
+        <div style="position:relative">
+            <loader-component></loader-component>
+        </div>
+      
+      </div>
+      <button *ngIf="!loading && loadBtnCheck" type="submit" class="view-botton" (click)="loadMore()">Load More</button>
+      
+    </div>
+  </div>

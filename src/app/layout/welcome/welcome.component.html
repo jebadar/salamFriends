@@ -1,0 +1,70 @@
+<!--Nav Start-->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="row">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" (click)="isCollapsed = !isCollapsed" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#"><img [src]="asset_url + 'images/logo.png'" alt=""/></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="text-right">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [collapse]="isCollapsed">
+          <login-component></login-component>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</nav>
+<!--Nav End-->
+<div class="clear"></div>
+<!--Content Start-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1 style="text-transform:none;font-family: sans-serif;"><span style="text-transform:none;">Salam Friends</span> Connect to the Muslim World. Your Family and Friends</h1>
+      <img class="social-image" [src]="asset_url + 'images/social-image.png'" alt="" /> </div>
+    <div class="col-sm-6">
+      <!-- <register-component></register-component> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<!--Content End-->
+<div class="clear"></div>
+<!--Footer Start-->
+<div class="footer-bubble">
+  <div class="footer-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <p>© Copyright 2017 Salam Friends. All Rights Reserved</p>
+        </div>
+        <div class="text-right">
+          <div class="col-sm-7">
+            <div class="topnav" id="myTopnav">
+              <a href="#home">About</a>
+              <a href="#news">Pages</a>
+              <a href="#contact">Adveise</a>
+              <a href="#about">Create a page</a>
+              <a href="#about">Careers</a>
+              <a href="#about">Privacy</a>
+              <a href="#about">Teams</a>
+              <a href="#about">Help</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Footer End-->

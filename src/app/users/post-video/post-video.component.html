@@ -1,0 +1,41 @@
+<div [hidden]="hide">
+  <input #file type="file" ng2FileSelect [uploader]="uploader" accept=".mp4">
+</div>
+<div [hidden]="uploader.queue.length < 100">
+  <button type="button" #uploadButton class="btn btn-success btn-xs" (click)="uploader.uploadAll()">
+      <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+</div>
+<div role="tabpanel" class="tab-pane" id="messages">
+  <textarea class="form-control" rows="3" [(ngModel)]="post.content" #content="ngModel" placeholder="Say something about this video..."></textarea>
+  <div class="status-bg">
+    <div class="text-right">
+      <a #upload (click)="file.click()" class="photo-botton"><img class="status-image" [src]="asset_url + 'images/video-icon-1.png'" alt=""/>Video</a><span>{{uploadedVideo}}</span>
+      <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <select class="btn btn-default dropdown-toggle" style="width: 100px;height: 40px;" name="privacy">
+                <option *ngFor="let x of privacy" [selected]="x.title === selectedPrivacy">{{x}}</option>
+            </select>
+          <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Public<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+          </ul> -->
+        </div>
+      </div>
+      <button class="post-botton" (click)="submitPost()">Post</button>
+    </div>
+    <div *ngIf="progress_bar > 0 && progress_bar < 100" class="progress">
+      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress_bar + '%' }">
+        {{progress_bar}}%
+      </div>
+    </div>
+    <div *ngIf="preview">
+        <video width="100%" controls>
+            <source [src]="videoPreview" type="video/mp4"> Your browser does not support the video element.
+              
+        </video>
+        <button type="button" class="btn btn-primary" (click)="cancel()">Remove</button>
+    </div>
+  </div>
+</div>

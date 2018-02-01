@@ -1,0 +1,23 @@
+<div *ngIf="!error">
+  <div *ngIf="response">
+    <h2 class="responsive" style="line-height: 45px;">Account Succesfully Verified</h2>
+    <h3>Please sign in using your email</h3>
+  </div>
+  <div *ngIf="!response">
+    <loader-component></loader-component>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>Your Account is been verified</h2>
+    
+  
+    </div>
+</div>
+<div *ngIf="error">
+<h3 style="line-height: 45px;">An error occurred during verifying email</h3>
+</div>

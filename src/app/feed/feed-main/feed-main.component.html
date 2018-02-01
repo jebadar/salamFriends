@@ -1,0 +1,119 @@
+<div *ngIf="detectmob" class="friends-list-box hidden-xs hidden-sm hidden-md">
+  <h3>Contacts</h3>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Aliya Khan</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Saddam Ahsan</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Kiran Ali</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Umer Farooq</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Noor Ahmed</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Nazeer Farooq</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Aliya Khan</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <h3>Activate</h3>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Maha Shah</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Wafa Khan</span></h3></a>
+  <div class="clear"></div>
+  <div class="list-bottom"></div>
+  <a href="#"><img class="list-image" [src]="asset_url + 'images/friend-list-image-1.png'" alt=""/><h3 style="padding-top: 12px;"><span>Inaya Ali</span></h3></a>
+  <div class="clear"></div>
+</div>
+<!--New Feed Start-->
+<div class="container">
+
+  <div class="row">
+    <div *ngIf="detectmob" class="col-sm-2 col-md-2">
+      <menu-component></menu-component>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div style="margin-top:80px">
+          <post-wrapper-component (post_ID)="postID($event)"></post-wrapper-component>
+
+
+      </div>
+      
+          <div class="search-results" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="onScroll()">
+              <div *ngFor="let post of posts ; let counter=index">
+                  <single-post-component [post]="post" [deleteRefer]="deleteVar" [postCheck]="checkToSend"></single-post-component>
+              </div>
+              <div class="clear"></div>
+          
+          </div>
+          <div *ngIf="loading">
+              <div style="position:relative">
+                  <loader-component></loader-component>
+              </div>
+          
+          </div>
+      
+    </div>
+
+    <div *ngIf="detectmob" class="col-sm-3 col-md-3">
+      <div class="birthday-bg" style="margin-top: 72px;">
+        <a href="#"><img class="gift-img" [src]="asset_url + 'images/gift-icon.png'" alt=""/><h3 style=" margin: 0px; margin-top:5px;">Ali Ahmed <span>birthday is today</span></h3></a>
+      </div>
+      <div class="birthday-bg-1">
+        <h5>Suggest Friends</h5>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+      </div>
+      <div class="birthday-bg-1">
+        <h5>Suggest Friends</h5>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <div class="text-center">
+          <button type="submit" class="see-all-botton">See All</button>
+        </div>
+      </div>
+      <div class="birthday-bg-1">
+        <h5>Add Friends</h5>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <a href="#"><img class="sug-img" [src]="asset_url + 'images/image-1.png'" alt=""/><p>Aliya Khan</p></a>
+        <div class="clear"></div>
+        <div class="bordder-bottom"></div>
+        <div class="text-center">
+          <button type="submit" class="see-all-botton">See All</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+<!--New Feed End-->

@@ -1,0 +1,55 @@
+<div *ngIf="!tabCheck && !loading" class="intro-bg">
+  <a><img class="timeline-image"style="margin-right: 0px;" [src]="Assets_URL + 'images/friend-icon.png'" alt=""/><h3 style="margin-top: 5px; width: 0%;">Friends</h3></a>
+  <div class="clear"></div>
+  <div class="intro-bottom"></div>
+  <div *ngFor="let friend of friendList">
+    <div class="col-sm-4 col-xs-4" style="padding-left: 0px;">
+      <div class="clear"></div>
+
+      <dp-component [profilePic]="friend.profile_pic"></dp-component>
+      <!-- <a ><img class="image" [src]="friend.profile_pic"  alt=""></a> -->
+      <div class="_3s6x" (click)="navigateToUser(friend.id)">
+        <div style="cursor: pointer;" class="_50f3">{{friend.name}}</div>
+      </div>
+
+      <div *ngIf="friendList.length<1" style="text-align: -webkit-center">No Friends</div>
+    </div>
+  </div>
+  <div *ngIf="emptyCheck"><button type="submit" class="view-botton">No Friends</button></div>
+  <div *ngIf="loadBtnCheck" style = "margin-left: 239px;">
+    <button type="submit" class="view-botton" (click)="viewAllFriends()">View all friends</button>
+  </div>
+</div>
+<div *ngIf="tabCheck && !loading" role="tabpanel" class="tab-pane" id="messages-3">
+    <div class="about-bg">
+      <a href="#"><img class="about-icon" [src]="Assets_URL + 'images/friends-icon.png'" alt=""/>Friends</a>
+    </div>
+    <div class="friend-bg">
+      <div *ngFor="let friend of friendList;let counter = index" class="col-sm-3">
+        <div *ngIf="counter < 6" class="friends-box">
+          <div class="col-sm-6" style="padding-left: 0px;" (click)="navigateToUser(friend.id)">
+           <dp-component [profilePic]="friend.profile_pic"></dp-component><a class="_50f3" style="cursor: pointer;">{{friend.name}}</a>
+          </div>
+          <div>
+          <add-friend-component [friendlistCheck] = "friendlistCheck" [userId]="friend.id" [InlineCheck]="classFlag"></add-friend-component>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div *ngIf="emptyCheck"><button type="submit" class="view-botton">No Friends</button></div>
+      <div *ngIf="loadBtnCheck" style = "margin-left: 239px;">
+        <button type="submit" class="view-botton" (click)="loadMore()">Load More</button>
+      </div>
+      <div class="clearfix"></div>
+      <!-- <div *ngIf="friendList.length < 1" style="text-align: -webkit-center">No Friends</div> -->
+  
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div *ngIf="loading">
+    <div style="position:relative">
+        <loader-component></loader-component>
+    </div>
+  </div>

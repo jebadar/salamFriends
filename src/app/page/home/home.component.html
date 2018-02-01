@@ -1,0 +1,47 @@
+<div class="col-sm-8 col-md-8">
+  <post-wrapper-component [pageId]="pageId" (post_ID)="postID($event)"></post-wrapper-component>
+  <timeline-component [pageId]="pageId" [post_id]="post_id"></timeline-component>
+</div>
+<div class="col-sm-4 col-md-4">
+  <div class="community-box">
+    <div class="page-like">
+      <h3>{{title}} Page</h3>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="community-box">
+    <div class="page-like">
+      <h3>Community</h3>
+    </div>
+    <img class="p1-icon" [src]="asset_url + 'images/p1.png'" alt="">
+    <div class="page-like">
+      <h4><a href="#"><span> Invite your friends </span></a>  to like this page </h4>
+    </div>
+    <div class="clear"></div>
+    <img class="p1-icon" [src]="asset_url + 'images/p2.png'" alt="">
+    <div class="page-like">
+      <h4>{{likes}} Peoples likes this page </h4>
+    </div>
+    <div class="clear"></div>
+    <img class="p1-icon" [src]="asset_url + 'images/p3.png'" alt="">
+    <div class="page-like">
+      <h4>{{likes}} Peoples follow this page</h4>
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+  </div>
+  <div class="community-box">
+    <div class="page-like">
+      <h3>About</h3>
+    </div>
+    <a href="#"><img class="p1-icon" [src]="asset_url + 'images/p1.png'" alt=""><div class="page-like"> <h4><span>Invite your friends </span> to like this page</h4></div></a>
+    <div class="clear"></div>
+    <a href="#"><img class="p1-icon" [src]="asset_url + 'images/p2.png'" alt=""><div class="page-like"> <h4><span>Invite your friends </span> to like this page</h4></div></a>
+    <div class="clear"></div>
+    <a href="#"><img class="p1-icon" [src]="asset_url + 'images/p3.png'" alt=""><div class="page-like"> <h4><span>Invite your friends </span> to like this page</h4></div></a>
+    <div class="clear"></div>
+    <a href="#"><img class="p1-icon" [src]="asset_url + 'images/p1.png'" alt=""><div class="page-like"> <h4><span>Invite your friends </span> to like this page</h4></div></a>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,34 @@
+<div class="" style="margin-top: 20px;position: relative;">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs hidden-sm" role="tablist">
+		<li (click)="textEnable()" role="presentation" tooltip="What's in your mind?" [ngClass]="{'active' : textCheck}"><a aria-controls="home" role="tab" data-toggle="tab"><img class="status-image" [src]="asset_url + 'images/pen-icon.png'" alt=""/><span *ngIf="detectmob">Text Status</span></a></li>
+		<li (click)="photoEnable()" role="presentation" tooltip="Upload a photo" [ngClass]="{'active' : photoCheck}"><a aria-controls="profile" role="tab" data-toggle="tab"><img class="status-image" [src]="asset_url + 'images/photo-icon.png'" alt=""/><span *ngIf="detectmob">Photo</span></a></li>
+		<li (click)="audioEnable()" role="presentation" tooltip="Upload a audio" [ngClass]="{'active' : audioCheck}"><a aria-controls="messages" role="tab" data-toggle="tab"><img class="status-image" [src]="asset_url + 'images/audio-icon.png'" alt=""/><span *ngIf="detectmob">Audio</span></a></li>
+		<li (click)="videoEnable()" role="presentation" tooltip="Upload a video" [ngClass]="{'active' : videoCheck}"><a aria-controls="settings" role="tab" data-toggle="tab"><img class="status-image" [src]="asset_url + 'images/video-icon.png'" alt=""/><span *ngIf="detectmob">Videos</span></a></li>
+		<li (click)="productEnable()" role="presentation" [ngClass]="{'active' : productCheck}"><a aria-controls="settings" role="tab" data-toggle="tab"><img class="status-image" [src]="asset_url + 'images/product-icon.png'" alt=""/><span *ngIf="detectmob">Product</span></a></li>
+	</ul>
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<loader-component [hidden]="!loading"> </loader-component>
+		<div [hidden]="loading">
+				<div *ngIf="textCheck && !audioCheck && !photoCheck && !videoCheck && !productCheck">
+						<post-text-component [pageId]="pageId" (loadingCheck)="setflag($event)" (postID)="postID($event)"></post-text-component>
+					</div> 
+					<div *ngIf="!textCheck && !audioCheck && photoCheck && !videoCheck && !productCheck">
+						<post-photo-component [pageId]="pageId" (postID)="postID($event)"></post-photo-component>
+					</div>
+					<div *ngIf="!textCheck && audioCheck && !photoCheck && !videoCheck && !productCheck">
+						<post-audio-component [pageId]="pageId" (postID)="postID($event)"></post-audio-component>
+					</div>
+					<div *ngIf="!textCheck && !audioCheck && !photoCheck && videoCheck && !productCheck">
+						<post-video-component [pageId]="pageId" (postID)="postID($event)"></post-video-component>
+					</div>
+					<div *ngIf="!textCheck && !audioCheck && !photoCheck && !videoCheck && productCheck">
+						<post-product-component  (postID)="postID($event)"></post-product-component>
+					</div>
+		</div>
+		
+	</div>
+
+	
+</div>
